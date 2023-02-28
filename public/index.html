@@ -7,23 +7,49 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
+    <!-- Google Fonts (Source Sans Pro, Bungee) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- External Library (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="logo">tweeter</span>
+      <div class="textAndIcon">
+        <span class="newTweet"><strong>Write</strong> a new tweet</span>
+        <i class="fa-solid fa-angles-down arrowIcon"></i>
+      </div>
+      
     </nav>
 
+    <header>
+      <div>
+          <img class="headerProfilePic" src="/images/profile-hex.png"> 
+      </div>
+      <p class="headerName"><strong>Harsh</strong> Patel</p>
+  </header>
+
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <h1>This is a test</h2>
+      <h2>Sample Text</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae consequuntur ducimus tempore quisquam quos tenetur officiis consequatur, eius, quaerat nesciunt voluptate perferendis autem nulla similique aliquid mollitia officia, voluptates maxime!</p>
+    </main>
   </body>
 </html>

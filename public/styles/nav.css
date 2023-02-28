@@ -1,0 +1,33 @@
+nav {
+  height: 120px;
+  background: #4056A1;
+  width: 100%;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+}
+
+.logo {
+  font-family: 'Bungee', sans-serif;
+  font-size: 30px;
+  margin-left: 1.5em;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.textAndIcon {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 20px;
+}
+
+.newTweet {
+  margin-right: 1.5em;
+}
+
+.arrowIcon {
+  align-self: center;
+}
