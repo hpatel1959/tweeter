@@ -1,0 +1,46 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetInquiry {
+  font-weight: bold;
+}
+
+.tweetButton {
+  background-color: #4056A1;
+  border: none;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 9px;
+  padding-left: 9px;
+}
+
+.buttonAndCounter {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bungee', sans-serif;
+  color: black;
+  font-size: 20px;
+  margin-top: 13px;
+
+}
+
+.counter {
+  margin-right: 15px;
+}
+
+.counter-red {
+  color: red;
+}
+
+#tweet-text {
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: solid;
+  border-bottom-color: black;
+  border-bottom-width: 4px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+}

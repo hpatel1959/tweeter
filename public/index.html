@@ -16,12 +16,15 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweetDisplay.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composerCharCounter.js"></script>
 
     <!-- External Library (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -38,7 +41,7 @@
       
     </nav>
 
-    <header>
+    <header class="mainHeader">
       <div>
           <img class="headerProfilePic" src="/images/profile-hex.png"> 
       </div>
@@ -47,9 +50,55 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h1>This is a test</h2>
-      <h2>Sample Text</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae consequuntur ducimus tempore quisquam quos tenetur officiis consequatur, eius, quaerat nesciunt voluptate perferendis autem nulla similique aliquid mollitia officia, voluptates maxime!</p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets">
+          <label class="tweetInquiry" for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div class="buttonAndCounter">
+            <button class="tweetButton" type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+
+      <article class="tweetDisplay">
+        <header class="tweetHeader">
+          <div>
+            <img src="/images/profile-hex.png">
+            <p class="tweetDisplayName">Harsh</p>
+          </div>
+          <p class="tweetHandle">@hpatel1959</p>
+        </header>
+        <p class="tweetContent">I am currently styling a Twitter clone app called Tweeter</p>
+        <footer class="tweetFooter">
+          <p>2 days ago</p>
+          <div>
+            <i class="fa-solid fa-flag fa-2xs reportButton"></i>
+            <i class="fa-solid fa-retweet fa-2xs retweetButton"></i>
+            <i class="fa-solid fa-heart fa-2xs likeButton"></i>
+          </div>
+        </footer>
+      </article>
+
+      <article class="tweetDisplay">
+        <header class="tweetHeader">
+          <div>
+            <img src="/images/profile-hex.png">
+            <p class="tweetDisplayName">Newton</p>
+          </div>
+          <p class="tweetHandle">@SirIsaac</p>
+        </header>
+        <p class="tweetContent">Dude I just saw this this apple fall straight down 🍎😨</p>
+        <footer class="tweetFooter">
+          <p>2 days ago</p>
+          <div>
+            <i class="fa-solid fa-flag fa-2xs reportButton"></i>
+            <i class="fa-solid fa-retweet fa-2xs retweetButton"></i>
+            <i class="fa-solid fa-heart fa-2xs likeButton"></i>
+          </div>
+        </footer>
+      </article>
     </main>
   </body>
 </html>
