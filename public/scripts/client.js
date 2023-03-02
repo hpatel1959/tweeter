@@ -4,30 +4,30 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 const createTweetElement = function(object) {
 
@@ -36,7 +36,7 @@ const createTweetElement = function(object) {
   const name = object.user.name; 
   const handle = object.user.handle; 
   const content = object.content.text;
-  const tweetDate = object.created_at; 
+  const tweetDate = timeago.format(object.created_at); 
 
   // new tweet article
   const newArticle = $("<article class='tweetDisplay'>");
@@ -86,7 +86,33 @@ const renderTweets = function(arrayofObj) {
 }
 
 
+
 $(document).ready(function() {
-  renderTweets(data);
+
+  $('#newTweetForm').submit(function(event) {
+    event.preventDefault();
+    
+    const $formData = $(this).serialize();
+    
+    $.ajax({
+      type: 'POST',
+      url: '/tweets',
+      data: $formData,
+      success: function() {
+        console.log($formData);
+      }
+    })
+  })
+
+  const loadTweets = function() {
+    $.ajax({
+      method: 'GET',
+      url: '/tweets'
+    }).then((res) => {
+      renderTweets(res);
+    })
+  }
+
+  loadTweets();
 });
 
