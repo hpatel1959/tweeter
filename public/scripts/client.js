@@ -79,8 +79,10 @@ const createTweetElement = function(object) {
 }
 
 const renderTweets = function(arrayofObj) {
+  // loop through array of users
   for (const obj of arrayofObj) {
     const $tweet = createTweetElement(obj);
+    // add tweet to top of tweets display
     $('#tweetsContainer').prepend($tweet);
   };
 }
@@ -89,11 +91,13 @@ const checkIfTweetIsValid = function(input) {
   const tweetText = $(input).val();
   const tweetLength = tweetText.length;
 
+  // if the input is left empty, display error message
   if (tweetText === '' || tweetText === null) {
     $(".error").text("❗️ Please fill out the field");
     $(".error").slideDown();
     return false;
   }
+    // if the input exceeds character limt of 140, display error message
   if (tweetLength > 140) {
     $(".error").text("❗️ Please stay within the character limit");
     $(".error").slideDown();
@@ -103,33 +107,34 @@ const checkIfTweetIsValid = function(input) {
 }
 
 const addTweetToTop = function() {
+  // ajay get request to obtain array of users
   $.ajax({
     method: 'GET',
     url: '/tweets'
-  }).then((res) => {
-    const lengthOfArr = res.length;
-    const newTweetData = res[lengthOfArr - 1];
-    const newTweet = createTweetElement(newTweetData);
-    $('#tweetsContainer').prepend(newTweet);
+  }).then((res) => { // res = arrayOfUsers
+    const lengthOfArr = res.length; // obtain number of elements in array of users
+    const newTweetData = res[lengthOfArr - 1]; // grabs data of the last added element from the array
+    const newTweet = createTweetElement(newTweetData); // creates tweet using data
+    $('#tweetsContainer').prepend(newTweet); // prepends tweet to tweet container
   }).then(() => {
-    $('#tweet-text').val('');
-    $('.counter').val('140');
+    $('#tweet-text').val(''); // resets text area to empty
+    $('.counter').val('140'); // resets character counter to 140
   })
 }
 
 
 $(document).ready(function() {
 
-  $(".error").hide();
+  $(".error").hide(); // immediately hides error message after DOM elements load
 
-  $('#newTweetForm').submit(function(event) {
-    event.preventDefault();
+  $('#newTweetForm').submit(function(event) { // event handler set on new tweet form
+    event.preventDefault(); // prevents event from redirecting to /tweets page
     
     const $formData = $(this).serialize();
     
-    if (checkIfTweetIsValid($('#tweet-text'))) {
-      $(".error").slideUp();
-      $.ajax({
+    if (checkIfTweetIsValid($('#tweet-text'))) { // checks if the input provided is valid using checkIfTweetIsValid function
+      $(".error").slideUp(); // removes error message if previously shown
+      $.ajax({ //ajax post request sending form data to server
         type: 'POST',
         url: '/tweets',
         data: $formData,
@@ -137,20 +142,20 @@ $(document).ready(function() {
           console.log('POST request success');
         }
       }).then(() => {
-        addTweetToTop();
+        addTweetToTop(); // prepend the tweet to top of the page using addTweetToTop function
       })
     }
   })
 
-  const loadTweets = function() {
-    $.ajax({
+  const loadTweets = function() { // function to render all tweets currently in database
+    $.ajax({ // ajax get request to obtain array of users from database
       method: 'GET',
       url: '/tweets'
-    }).then((res) => {
-      renderTweets(res);
+    }).then((res) => { // res = array of users
+      renderTweets(res); // uses the render tweets function which uses createTweetElement function to make and prepend new tweet for all users in response array when called
     })
   }
 
-  loadTweets();
+  loadTweets(); // calls loadTweets function to render all tweets to page
 });
 
