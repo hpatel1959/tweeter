@@ -90,11 +90,13 @@ const checkIfTweetIsValid = function(input) {
   const tweetLength = tweetText.length;
 
   if (tweetText === '' || tweetText === null) {
-    alert('Please enter some text');
+    $(".error").text("❗️ Please fill out the field");
+    $(".error").slideDown();
     return false;
   }
   if (tweetLength > 140) {
-    alert('Please stay within the character limit');
+    $(".error").text("❗️ Please stay within the character limit");
+    $(".error").slideDown();
     return false;
   }
   return true;
@@ -117,12 +119,16 @@ const addTweetToTop = function() {
 
 
 $(document).ready(function() {
+
+  $(".error").hide();
+
   $('#newTweetForm').submit(function(event) {
     event.preventDefault();
     
     const $formData = $(this).serialize();
     
     if (checkIfTweetIsValid($('#tweet-text'))) {
+      $(".error").slideUp();
       $.ajax({
         type: 'POST',
         url: '/tweets',
@@ -146,12 +152,5 @@ $(document).ready(function() {
   }
 
   loadTweets();
-
-  // $('#newTweetForm').submit(function(event) {
-  //   event.preventDefault();
-
-  //   addTweetToTop();
-  // });  
-
 });
 
