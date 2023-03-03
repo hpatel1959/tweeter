@@ -1,24 +1,33 @@
 .mainHeader {
-  height: 520px;
+  height: 300px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0px;
+  justify-content: center;
+  gap: 15px;
   background-color: #d1a700;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
 
+.headerProfilePic {
+  height: 150px;
+  width: 150px;
+  margin-top: 40px;
+}
 
 .headerName {
   color: white;
-  font-size: 35px;
+  font-size: 20px;
   display: inline-block;
   margin: 0;
 }
 
-.headerProfilePic {
-  margin-top: 160px;
+@media only screen and (min-width: 769px) {
+  .mainHeader {
+    height: 400px;
+    width: 50%;
+  }
 }
 
 

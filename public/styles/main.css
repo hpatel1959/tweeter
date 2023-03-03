@@ -1,0 +1,7 @@
+@media only screen and (min-width: 769px) {
+  .headerAndMain {
+    display: flex;
+    padding-top: 200px;
+    margin-left: 5%;
+  }
+}

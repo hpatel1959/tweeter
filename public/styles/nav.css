@@ -13,8 +13,7 @@ nav {
   font-family: 'Bungee', sans-serif;
   font-size: 30px;
   margin-left: 1.5em;
-  align-self: flex-end;
-  margin-bottom: 20px;
+  align-self: center;
 }
 
 .textAndIcon {
@@ -32,4 +31,15 @@ nav {
 .arrowIcon {
   align-self: center;
   color: red;
+  margin-right: 15px;
 }
+
+@media only screen and (max-width: 767px) {
+  nav {
+    background-color: #d1a700;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+    position: fixed;
+    height: 60px;
+  }
+}
+
