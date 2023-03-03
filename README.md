@@ -20,5 +20,5 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Screenshot of the mobile/tablet view"]()
-!["Screenshot of the desktop view"]()
+!["Screenshot of the mobile/tablet view"](https://github.com/hpatel1959/tweeter/blob/master/docs/mobile-view.png?raw=true)
+!["Screenshot of the desktop view"](https://github.com/hpatel1959/tweeter/blob/master/docs/desktop-view.png?raw=true)
