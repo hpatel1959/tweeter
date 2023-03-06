@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const $tweetText = $('#tweet-text');
 
-    $tweetText.on('keyup', function() {
+    $tweetText.on('input', function() {
       let tweetLength = this.value.length;
 
       const $counter = $(this).closest('.new-tweet').find('.counter');

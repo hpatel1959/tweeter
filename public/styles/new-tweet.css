@@ -44,3 +44,8 @@ form {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
 }
+
+p {
+  word-break: break-all;
+  white-space: normal;
+}
